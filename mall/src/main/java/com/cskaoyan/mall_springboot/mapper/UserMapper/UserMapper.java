@@ -1,6 +1,6 @@
-package com.cskaoyan.mall_springboot.mapper;
+package com.cskaoyan.mall_springboot.mapper.UserMapper;
 
-import com.cskaoyan.mall_springboot.bean.User;
+import com.cskaoyan.mall_springboot.bean.UserBean.User;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

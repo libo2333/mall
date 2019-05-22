@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /
+    context-path: /admin
   port: 80
 
 spring:
@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cskaoyanmall?useSSL=false
     username: root
-    password: 123456
+    password: sql7549785
 #  profiles:
 #    active: alpha
 
@@ -19,6 +19,6 @@ spring:
 
 db:
   driver-class-name: com.mysql.cj.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/jdbc?useSSL=false
+  url: jdbc:mysql://localhost:3306/cskaoyanmall?useSSL=false&serverTimezone=GMT
   username: root
-  password: 123456
+  password: sql7549785
