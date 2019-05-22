@@ -17,15 +17,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/login")
-    public String login(User user, Model model){
-        boolean login = userService.login(user);
-        if(login){
-            model.addAttribute("user",user);
-            return "hello";
-        }
-        return "index.html";
-    }
 
    /* @RequestMapping("list")
     @ResponseBody

@@ -1,6 +1,7 @@
 HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.xml
 
 ### STS ###
 .apt_generated
@@ -27,5 +28,5 @@ HELP.md
 
 ### VS Code ###
 .vscode/
-.yml/
+..yml/
 .gitignore

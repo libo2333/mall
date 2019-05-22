@@ -5,7 +5,6 @@ import com.cskaoyan.mall_springboot.bean.UserBean.User;
 
 
 public interface UserService {
-    boolean login(User user);
 
     QueryStatus queryUserList();
 }

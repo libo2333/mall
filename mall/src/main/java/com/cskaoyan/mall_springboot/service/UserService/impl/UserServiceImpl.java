@@ -13,11 +13,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
-    @Override
-    public boolean login(User user) {
-        User login = userMapper.login(user);
-        return login != null;
-    }
 
     @Override
     public QueryStatus queryUserList() {
