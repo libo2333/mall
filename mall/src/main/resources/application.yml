@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /mall
+    context-path: /
   port: 80
 
 spring:

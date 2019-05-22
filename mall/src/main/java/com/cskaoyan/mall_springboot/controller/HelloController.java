@@ -20,4 +20,10 @@ public class HelloController {
     public String hello(){
         return "hello";
     }
+
+    @RequestMapping("/admin/user/list")
+    @ResponseBody
+    public String admin(){
+        return "admin";
+    }
 }

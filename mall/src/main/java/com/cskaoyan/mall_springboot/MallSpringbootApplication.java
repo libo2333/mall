@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.cskaoyan.mall_springboot.mapper")
+@MapperScan(basePackages = "com.com.mall_springboot.mapper")
 public class MallSpringbootApplication {
 
     public static void main(String[] args) {
