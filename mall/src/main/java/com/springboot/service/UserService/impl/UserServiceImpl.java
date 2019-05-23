@@ -16,9 +16,9 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public List<User> queryUserList(PageDetail pageDetail) {
+    public List<User> queryUserList(PageDetail pageDetail,String username,String mobiile) {
 
-        List<User> userList = userMapper.queryUserList(pageDetail);
+        List<User> userList = userMapper.queryUserList(pageDetail,username,mobiile);
         System.out.println(userList);
         return userList;
     }

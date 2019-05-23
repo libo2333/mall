@@ -105,9 +105,19 @@
     select
     <include refid="Base_Column_List" />
     from cskaoyan_mall_user
+    <where>
+      1=1
+      <if test="username != null">
+        and username like CONCAT('%',#{username},'%')
+      </if>
+      <if test="mobile != null">
+        and mobile like CONCAT('%',#{mobile},'%')
+      </if>
+    </where>
     <if test="#{pageDetail} != null">
       limit #{pageDetail.limit} offset #{pageDetail.offset}
     </if>
+
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from cskaoyan_mall_user

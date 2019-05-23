@@ -3,8 +3,8 @@ package com.springboot.controller.UserController;
 import com.springboot.bean.Data;
 import com.springboot.bean.PageDetail;
 import com.springboot.bean.ResponseVO;
-import com.springboot.bean.UserBean.User;
-import com.springboot.service.UserService.UserService;
+import com.springboot.bean.UserBean.Address;
+import com.springboot.service.UserService.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,28 +12,26 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-
 @Controller
-@RequestMapping("user")
-public class UserController {
+@RequestMapping("address")
+public class AddressController {
 
     @Autowired
-    UserService userService;
+    AddressService addressService;
     @Autowired
     Data data;
 
     @RequestMapping("list")
     @ResponseBody
-    public ResponseVO user(PageDetail pageDetail,String username,String mobile){
+    public ResponseVO address(PageDetail pageDetail,String userId,String name){
         pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
-        List<User> userList = userService.queryUserList(pageDetail,username,mobile);
-        if (userList.isEmpty()&&userList==null){
+        List<Address> addressList = addressService.queryAddressList(pageDetail,userId,name);
+        if (addressList.isEmpty()&&addressList==null){
             return new ResponseVO(null, "fail", 404);
-        }else{
-            data.setTotal(userList.size());
-            data.setItems(userList);
-            return new ResponseVO(data, "成功", 0);
+        }else {
+            data.setTotal(addressList.size());
+            data.setItems(addressList);
+            return new ResponseVO(data,"ok",0);
         }
     }
-
 }

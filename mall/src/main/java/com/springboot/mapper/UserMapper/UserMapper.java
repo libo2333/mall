@@ -18,7 +18,7 @@ public interface UserMapper {
 
     User selectByPrimaryKey(Integer id);
 
-    List<User> queryUserList(@Param("pageDetail") PageDetail pageDetail);
+    List<User> queryUserList(@Param("pageDetail") PageDetail pageDetail,@Param("username")String username,@Param("mobile")String mobile);
 
     int updateByPrimaryKeySelective(User record);
 
