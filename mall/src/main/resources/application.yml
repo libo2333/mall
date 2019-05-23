@@ -1,24 +1,16 @@
+spring:
+  profiles:
+    active: alpha
+---
 server:
   servlet:
     context-path: /admin
   port: 80
-
-spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cskaoyanmall?useSSL=false&serverTimezone=GMT
-    username: root
-    password: 123456
-#  profiles:
-#    active: alpha
-
----
 spring:
   profiles: alpha
-
-db:
-  driver-class-name: com.mysql.cj.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/cskaoyanmall?useSSL=false&serverTimezone=GMT
-  username: root
-  password: 123456
+  datasource:
+    url: jdbc:mysql://localhost/cskaoyanmall?serverTimezone=GMT&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
