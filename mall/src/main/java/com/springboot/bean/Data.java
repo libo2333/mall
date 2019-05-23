@@ -1,16 +1,18 @@
 package com.springboot.bean;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
-
-public class Result<T> {
+@Component
+public class Data<T> {
     private List<T> items;
     private int total;
 
-    public Result() {
+    public Data() {
     }
 
-    public Result(List<T> items, int total) {
+    public Data(List<T> items, int total) {
         this.items = items;
         this.total = total;
     }

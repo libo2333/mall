@@ -1,27 +1,24 @@
 package com.springboot.bean;
 
-import java.util.List;
-
-
-public class ResponseVO<T> {
-    private T data;
-    private String errmsg;
-    private int errno;
+public class ResponseVO{
+    Data data;
+    String errmsg;
+    int errno;
 
     public ResponseVO() {
     }
 
-    public ResponseVO(T data, String errmsg, int errno) {
+    public ResponseVO(Data data, String errmsg, int errno) {
         this.data = data;
         this.errmsg = errmsg;
         this.errno = errno;
     }
 
-    public T getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(Data data) {
         this.data = data;
     }
 

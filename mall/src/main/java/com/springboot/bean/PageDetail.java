@@ -11,14 +11,6 @@ public class PageDetail {
     public PageDetail() {
     }
 
-    public PageDetail(int page, int limit, int offset, String sort, String order) {
-        this.page = page;
-        this.limit = limit;
-        this.offset = offset;
-        this.sort = sort;
-        this.order = order;
-    }
-
     public int getPage() {
         return page;
     }
@@ -39,7 +31,7 @@ public class PageDetail {
         return offset;
     }
 
-    public void setOffset() {
+    public void setOffset(int i) {
         offset = limit * (page - 1);
     }
 

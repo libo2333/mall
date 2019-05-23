@@ -17,7 +17,7 @@ public class User {
     int status;
     String addTime;
     String updateTime;
-    int deleted;
+    boolean deleted;
 
     public String getUsername() {
         return username;
@@ -139,11 +139,11 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public int getDeleted() {
+    public boolean isDeleted() {
         return deleted;
     }
 
-    public void setDeleted(int deleted) {
+    public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
 
