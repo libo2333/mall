@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.admin.AdminMapper">
+    <sql id="queryAdminSql">
+        SELECT id,avatar,role_ids,username from cskaoyan_mall_admin
+        ORDER BY #{sort} #{order}
+    </sql>
+    <resultMap id="AdminMap" type="com.springboot.bean.admin.ResponseAdmin">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="avatar" property="avatar"/>
+        <result column="role_ids" property="roleIds" typeHandler="com.springboot.handler.StringToArrayHandler"/>
+    </resultMap>
+    <select id="queryAllAdmin" resultMap="AdminMap" >
+        <include refid="queryAdminSql"/>
+    </select>
+</mapper>
+
+
+

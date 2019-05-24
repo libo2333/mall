@@ -1,32 +1,51 @@
-package com.springboot.controller;
+package com.springboot.controller.admin;
+
 
 import com.springboot.Util.FileUploadUtil;
+import com.springboot.bean.Data;
 import com.springboot.bean.PictureData;
 import com.springboot.bean.ResponseVO;
-import com.springboot.service.StorageService;
+import com.springboot.bean.admin.Storage;
+import com.springboot.service.admin.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
-@RequestMapping("storage")
-public class StorageController {
-
+public class AdminStorageController {
     @Autowired
     StorageService storageService;
 
-    @RequestMapping("create")
+    @RequestMapping(value = "storage/list", method = RequestMethod.OPTIONS)
+    public void storageOption() {
+    }
+    @ResponseBody
+    @RequestMapping(value = "storage/list", method = RequestMethod.GET)
+    public ResponseVO storageList(@RequestParam("page") int page,
+                                  @RequestParam("limit") int limit,
+                                  @RequestParam("sort") String sort,
+                                  @RequestParam("order") String order) {
+        List<Storage> storages = storageService.queryAllStorage(page,limit,sort,order);
+        return new ResponseVO(new Data<>( storages,storages.size()), "成功", 0);
+    }
+/*//    @RequestMapping(value = "storage/create")
+//    @ResponseBody
+//    public ResponseVO storageCreate(@RequestParam("file") MultipartFile file){
+//        int i = storageService.insertStorage(file);
+//        List<Storage> storages= (List<Storage>) file;
+//        return (i==1? new ResponseVO(new Data<>(storages,1),"成功",0):
+//        new ResponseVO(null,"失败",1));
+//    }*/
+    @RequestMapping("storage/create")
     @ResponseBody
     public ResponseVO create(MultipartFile file, HttpServletRequest request) throws IOException {
         /*StringBuilder stringBuilder = new StringBuilder();
@@ -52,7 +71,7 @@ public class StorageController {
         }
     }
 
-    @RequestMapping("fetch/{path}")
+    @RequestMapping("storage/fetch/{path}")
     public void fetch(@PathVariable("path") String path, HttpServletResponse response){
         File file = new File("/upload/image/" + path);
 
@@ -67,4 +86,5 @@ public class StorageController {
             e.printStackTrace();
         }
     }
+
 }
