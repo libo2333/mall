@@ -7,6 +7,7 @@ import com.springboot.bean.SpreadBean.Ad;
 import com.springboot.service.SpreadService.AdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -39,20 +40,37 @@ public class AdController {
 
     @RequestMapping("create")
     @ResponseBody
-    public ResponseVO createAd(HttpServletRequest request){
-        StringBuilder stringBuilder = new StringBuilder();
-        try {
-            BufferedReader reader = request.getReader();
-            char[] buff = new char[1024];
-            int len;
-            while ((len = reader.read(buff)) != -1){
-                stringBuilder.append(buff,0,len);
-            }
-        }  catch (IOException e) {
-            e.printStackTrace();
+    public ResponseVO createAd(@RequestBody Ad ad){
+        int ret = adService.insertAd(ad);
+        if (ret==1){
+            ad = adService.queryAdByPrimaryKey(ad.getId());
+            return new ResponseVO(ad,"ok",0);
+        }else {
+            return new ResponseVO(null,"fail",404);
         }
-        String s = stringBuilder.toString();
-        System.out.println(s);
-        return null;
+    }
+
+    @RequestMapping("update")
+    @ResponseBody
+    public ResponseVO updateAd(@RequestBody Ad ad){
+        int ret = adService.updateAd(ad);
+        if (ret==1){
+            ad = adService.queryAdByPrimaryKey(ad.getId());
+            return new ResponseVO(ad,"ok",0);
+        }else {
+            return new ResponseVO(null,"fail",404);
+        }
+    }
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public ResponseVO deleteAd(@RequestBody Ad ad){
+        int ret = adService.deleteAd(ad.getId());
+        if (ret==1){
+            //ad = adService.queryAdByPrimaryKey(ad.getId());
+            return new ResponseVO(ad,"ok",0);
+        }else {
+            return new ResponseVO(null,"fail",404);
+        }
     }
 }

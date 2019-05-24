@@ -127,7 +127,7 @@
     </if>
   </delete>-->
   <insert id="insert" parameterType="com.springboot.bean.SpreadBean.Ad">
-    insert into cskaoyan_mall_ad (id, name, link, 
+    insert into cskaoyan_mall_ad (id, `name`, link,
       url, position, content, 
       start_time, end_time, enabled, 
       add_time, update_time, deleted
@@ -145,7 +145,7 @@
         id,
       </if>
       <if test="name != null">
-        name,
+        `name`,
       </if>
       <if test="link != null">
         link,
