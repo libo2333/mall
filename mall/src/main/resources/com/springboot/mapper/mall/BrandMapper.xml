@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.mapper.mall.BrandMapper">
+
+    <resultMap id="BaseResultMap" type="com.springboot.bean.mall.brand.Brand">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="desc" property="desc" />
+        <result column="pic_url" property="picUrl" />
+        <result column="sort_order" property="sortOrder" />
+        <result column="floor_price" property="floorPrice" />
+        <result column="add_time" property="addTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+    <select id="selectBrandList" resultMap="BaseResultMap">
+        select id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted from cskaoyan_mall_brand
+    </select>
+
+    <select id="selectBrandListByIdAndName" resultMap="BaseResultMap">
+        select id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted from cskaoyan_mall_brand
+        where id=#{param1} and name like CONCAT('%',#{param2},'%')
+    </select>
+
+    <select id="selectBrandListByName" resultMap="BaseResultMap">
+        select id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted from cskaoyan_mall_brand
+        where name like CONCAT('%',#{name},'%')
+    </select>
+
+    <select id="selectBrandListById" resultMap="BaseResultMap">
+        select id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted from cskaoyan_mall_brand
+        where id = #{id}
+    </select>
+
+    <delete id="deleteBrandById">
+        delete from cskaoyan_mall_brand where id = #{id}
+    </delete>
+
+    <update id="updateBrand">
+        update cskaoyan_mall_brand
+        set name = #{name}, `desc` = #{desc}, pic_url = #{picUrl}, sort_order = #{sortOrder},
+        floor_price = #{floorPrice}, add_time = #{addTime}, update_time = now(), deleted = #{deleted}
+        where id = #{id}
+    </update>
+
+    <insert id="insertBrand">
+        insert into cskaoyan_mall_brand
+        (id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted)
+        values (null,#{name},#{desc},'C:\Users\77521\Pictures\Camera Roll\file.jpg',100,#{floorPrice},now(),now(),0)
+    </insert>
+
+    <select id="returnBrand" resultMap="BaseResultMap">
+       select id,name,`desc`,pic_url,sort_order,floor_price,add_time,update_time,deleted from cskaoyan_mall_brand
+       where name = #{name} and `desc` = #{desc} and floor_price = #{floorPrice}
+    </select>
+
+</mapper>

@@ -7,9 +7,9 @@ public class City {
     String name;
     int type;
     int code;
-    List<Region> children;
+    List<Town> children;
 
-    public City(int id, String name, int type, int code, List<Region> children) {
+    public City(int id, String name, int type, int code, List<Town> children) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -52,11 +52,11 @@ public class City {
         this.code = code;
     }
 
-    public List<Region> getChildren() {
+    public List<Town> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Region> children) {
+    public void setChildren(List<Town> children) {
         this.children = children;
     }
 
