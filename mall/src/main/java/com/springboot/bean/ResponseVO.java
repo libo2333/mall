@@ -1,24 +1,24 @@
 package com.springboot.bean;
 
-public class ResponseVO{
-    Data data;
+public class ResponseVO<T>{
+    T data;
     String errmsg;
     int errno;
 
     public ResponseVO() {
     }
 
-    public ResponseVO(Data data, String errmsg, int errno) {
+    public ResponseVO(T data, String errmsg, int errno) {
         this.data = data;
         this.errmsg = errmsg;
         this.errno = errno;
     }
 
-    public Data getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Data data) {
+    public void setData(T data) {
         this.data = data;
     }
 

@@ -1,17 +1,9 @@
 package com.springboot.config;
 
-import com.springboot.filter.CorsFilter;
-import org.hibernate.validator.HibernateValidator;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.validation.Validator;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-
-import javax.servlet.Filter;
-import javax.validation.Validation;
-import java.util.ArrayList;
 
 @Configuration
 public class MyWebConfig extends WebMvcConfigurationSupport {

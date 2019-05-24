@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -32,5 +35,24 @@ public class AdController {
             data.setItems(adList);
             return new ResponseVO(data,"ok",0);
         }
+    }
+
+    @RequestMapping("create")
+    @ResponseBody
+    public ResponseVO createAd(HttpServletRequest request){
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            BufferedReader reader = request.getReader();
+            char[] buff = new char[1024];
+            int len;
+            while ((len = reader.read(buff)) != -1){
+                stringBuilder.append(buff,0,len);
+            }
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+        String s = stringBuilder.toString();
+        System.out.println(s);
+        return null;
     }
 }
