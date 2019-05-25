@@ -25,12 +25,13 @@ public class UserController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO user(PageDetail pageDetail,String username,String mobile){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<User> userList = userService.queryUserList(pageDetail,username,mobile);
         if (userList.isEmpty()&&userList==null){
             return new ResponseVO(null, "fail", 404);
         }else{
-            data.setTotal(userList.size());
+            int total = userService.queryUserCount(username,mobile);
+            data.setTotal(total);
             data.setItems(userList);
             return new ResponseVO(data, "成功", 0);
         }

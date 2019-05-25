@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
         System.out.println(userList);
         return userList;
     }
+
+    @Override
+    public int queryUserCount(String username,String mobile) {
+        int total = userMapper.selectUserCount(username,mobile);
+        return total;
+    }
 }

@@ -1,12 +1,13 @@
 package com.springboot.bean;
 
 
-public class PageDetail {
+public class PageDetail<T> {
     private int page;
     private int limit;
     private int offset;
     private String sort;
     private String order;
+    private T requestBean;
 
     public PageDetail() {
     }
@@ -31,7 +32,7 @@ public class PageDetail {
         return offset;
     }
 
-    public void setOffset(int i) {
+    public void setOffset() {
         offset = limit * (page - 1);
     }
 
@@ -49,5 +50,13 @@ public class PageDetail {
 
     public void setOrder(String order) {
         this.order = order;
+    }
+
+    public T getRequestBean() {
+        return requestBean;
+    }
+
+    public void setRequestBean(T requestBean) {
+        this.requestBean = requestBean;
     }
 }

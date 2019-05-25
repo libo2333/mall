@@ -24,7 +24,7 @@ public class FeedBackController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO feedback(PageDetail pageDetail,String username,String id){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<Feedback> feedbackList = feedBackService.querySearchHistoryList(pageDetail,username,id);
         if (feedbackList.isEmpty()&&feedbackList==null){
             return new ResponseVO(null, "fail", 404);

@@ -24,7 +24,7 @@ public class FootPrintController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO footPrint(PageDetail pageDetail,String userId,String goodsId){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<FootPrint> footPrintList = footPrintService.queryFootPrintList(pageDetail,userId,goodsId);
         if (footPrintList.isEmpty()&&footPrintList==null){
             return new ResponseVO(null,"fail",404);

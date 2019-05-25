@@ -6,7 +6,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @Configuration
-public class MyWebConfig extends WebMvcConfigurationSupport {
+public class MyWebConfig {
 
 /*    @Bean
     public FilterRegistrationBean filterRegistrationBean(){

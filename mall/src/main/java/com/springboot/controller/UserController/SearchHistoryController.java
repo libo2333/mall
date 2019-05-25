@@ -24,7 +24,7 @@ public class SearchHistoryController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO history(PageDetail pageDetail, String userId, String keyword){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<SearchHistory> searchHistoryList = searchHistoryService.querySearchHistoryList(pageDetail,userId,keyword);
         if (searchHistoryList.isEmpty()&&searchHistoryList==null){
             return new ResponseVO(null, "fail", 404);

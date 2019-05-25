@@ -37,7 +37,7 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-    id, `name`, `key`, `type`, `size`, url, add_time, update_time, deleted
+    id, `name`, `key`, type, size, url, add_time, update_time, deleted
   </sql>
     <insert id="insertStoragePicture" parameterType="com.springboot.bean.PictureData">
         insert into cskaoyan_mall_storage (<include refid="Base_Column_List" />)

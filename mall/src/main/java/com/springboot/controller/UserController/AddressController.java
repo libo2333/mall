@@ -24,12 +24,13 @@ public class AddressController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO address(PageDetail pageDetail,String userId,String name){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<Address> addressList = addressService.queryAddressList(pageDetail,userId,name);
         if (addressList.isEmpty()&&addressList==null){
             return new ResponseVO(null, "fail", 404);
         }else {
-            data.setTotal(addressList.size());
+            int total = addressService.queryAddressCount(userId,name);
+            data.setTotal(total);
             data.setItems(addressList);
             return new ResponseVO(data,"ok",0);
         }

@@ -27,7 +27,7 @@ public class AdController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO ad(PageDetail pageDetail,String name,String content){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<Ad> adList = adService.queryAdList(pageDetail,name,content);
         if (adList.isEmpty()&&adList==null){
             return new ResponseVO(null, "fail", 404);

@@ -24,7 +24,7 @@ public class CollectController {
     @RequestMapping("list")
     @ResponseBody
     public ResponseVO collect(PageDetail pageDetail,String userId,String valueId){
-        pageDetail.setOffset((pageDetail.getPage()-1)*pageDetail.getLimit());
+        pageDetail.setOffset();
         List<Collect> collectList = collectService.queryCollectList(pageDetail,userId,valueId);
         if (collectList.isEmpty()&&collectList==null){
             return new ResponseVO(null,"fail",404);

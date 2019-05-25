@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface AddressService {
     List<Address> queryAddressList(PageDetail pageDetail,String userId,String name);
+
+    int queryAddressCount(String userId, String name);
 }

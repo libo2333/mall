@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserService {
 
     List<User> queryUserList(PageDetail pageDetail,String username,String mobile);
+
+    int queryUserCount(String username,String mobile);
 }

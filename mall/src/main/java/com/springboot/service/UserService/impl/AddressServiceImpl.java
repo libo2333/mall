@@ -20,4 +20,10 @@ public class AddressServiceImpl implements AddressService {
         List<Address> addressList = addressMapper.selectAddress(pageDetail,userId,name);
         return addressList;
     }
+
+    @Override
+    public int queryAddressCount(String userId, String name) {
+        int total = addressMapper.selectAddressCount(userId,name);
+        return total;
+    }
 }

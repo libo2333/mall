@@ -64,8 +64,8 @@ public class AdminStorageController {
         PictureData data = FileUploadUtil.uploadUtil(file, request);
         int ret = storageService.createStorage(data);
         if (ret==1){
-            data = storageService.queryStorageByKey(data);
-            return new ResponseVO(data,"ok",0);
+            PictureData data1 = storageService.queryStorageByKey(data);
+            return new ResponseVO<PictureData>(data1,"成功",0);
         }else {
             return new ResponseVO(null,"fail",404);
         }

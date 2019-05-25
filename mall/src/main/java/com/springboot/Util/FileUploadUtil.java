@@ -25,7 +25,6 @@ public class FileUploadUtil {
 
         if (!uploadFile.getParentFile().exists()) {
             uploadFile.getParentFile().mkdirs();
-            uploadFile.createNewFile();
         }
 
         file.transferTo(uploadFile);
