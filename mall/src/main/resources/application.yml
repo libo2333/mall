@@ -4,7 +4,7 @@ spring:
 ---
 server:
   servlet:
-    context-path: /admin
+    context-path: /
   port: 80
 spring:
   profiles: alpha

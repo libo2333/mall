@@ -8,7 +8,7 @@
         <result column="keywords" property="keywords" />
         <result column="desc" property="desc" />
         <result column="icon_url" property="iconUrl" />
-        <result column="picUrl" property="picUrl" />
+        <result column="pic_url" property="picUrl" />
         <result column="level" property="level" />
         <result column="sort_order" property="sortOrder" />
         <result column="add_time" property="addTime" />

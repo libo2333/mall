@@ -1,9 +1,11 @@
 package com.springboot.bean.wx.category;
 
 import com.springboot.bean.mall.category.CategoryL2;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class CategoryData {
 
     private List<CategoryL2> categoryList;

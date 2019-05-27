@@ -20,7 +20,7 @@ public class CategoryL2 {
     public CategoryL2() {
     }
 
-    public CategoryL2(int id, String name, String keywords, String desc, String iconUrl, String picUrl, String level) {
+    public CategoryL2(int id, String name, String keywords, String desc, String iconUrl, String picUrl, String level, Byte sortOrder, String addTime, String updateTime, Boolean deleted) {
         this.id = id;
         this.name = name;
         this.keywords = keywords;
@@ -28,6 +28,10 @@ public class CategoryL2 {
         this.iconUrl = iconUrl;
         this.picUrl = picUrl;
         this.level = level;
+        this.sortOrder = sortOrder;
+        this.addTime = addTime;
+        this.updateTime = updateTime;
+        this.deleted = deleted;
     }
 
     public int getId() {
@@ -84,6 +88,38 @@ public class CategoryL2 {
 
     public void setLevel(String level) {
         this.level = level;
+    }
+
+    public Byte getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(Byte sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    public String getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(String addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
     }
 
     @Override
