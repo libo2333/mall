@@ -4,13 +4,13 @@ spring:
 ---
 server:
   servlet:
-    context-path: /admin
+    context-path: /
   port: 80
 spring:
   profiles: alpha
   datasource:
-    url: jdbc:mysql://localhost/mail?serverTimezone=GMT&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost/cskaoyanmall?serverTimezone=GMT&allowPublicKeyRetrieval=true
     username: root
-    password: z15924528
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
