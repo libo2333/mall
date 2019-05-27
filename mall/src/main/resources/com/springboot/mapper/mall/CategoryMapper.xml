@@ -10,8 +10,32 @@
         <result column="icon_url" property="iconUrl" />
         <result column="picUrl" property="picUrl" />
         <result column="level" property="level" />
+        <result column="sort_order" property="sortOrder" />
+        <result column="add_time" property="addTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+
     </resultMap>
 
-    
+    <!--搜索一级目录-->
+    <select id="selectCategoryList" resultMap="BaseResultMap">
+        select id,name,keywords,`desc`,icon_url,pic_url,level,sort_order,add_time,update_time,deleted
+        from cskaoyan_mall_category where level='L1'
+    </select>
+
+    <!--current-->
+    <select id="selectCurrentCategoryById" resultType="com.springboot.bean.mall.category.CategoryL2">
+        select id,name,keywords,`desc`,icon_url,pic_url,level,sort_order,add_time,update_time,deleted
+        from cskaoyan_mall_category where level='L1' and id = #{id}
+    </select>
+
+    <!--二级目录-->
+    <select id="selectSubCategory" resultMap="BaseResultMap">
+         select id,name,keywords,`desc`,icon_url,pic_url,level,sort_order,add_time,update_time,deleted
+        from cskaoyan_mall_category where level='L2' and pid = #{id}
+    </select>
+
+
+
 
 </mapper>

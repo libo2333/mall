@@ -8,6 +8,7 @@ public class CategoryL2 {
     String iconUrl;
     String picUrl;
     String level;
+
     private Byte sortOrder;
 
     private String addTime;
