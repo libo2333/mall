@@ -7,9 +7,14 @@ import java.util.List;
 
 
 public interface CategoryMapper {
-    List<CategoryL2> selectCategoryList(int limit,int offset);
+    List<CategoryL2> selectCategoryList();
 
     CategoryL2 selectCurrentCategoryById(int id);
 
     List<CategoryL2> selectSubCategory(int id);
+
+
+
+
+    int selectFirstCategoryId();
 }
