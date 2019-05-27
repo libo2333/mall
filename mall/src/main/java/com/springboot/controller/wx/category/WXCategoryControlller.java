@@ -25,6 +25,6 @@ public class WXCategoryControlller {
     public ResponseVO category(){
         List<CategoryL2> categoryList = wxCategoryService.queryCategoryList();
         CategoryL2 currentCategory = wxCategoryService.queryCategoryById(1);
-        List<C>
+        List<CategoryL2> currentSubCategory
     }
 }
