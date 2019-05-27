@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-@RequestMapping("ad")
+@RequestMapping("admin/ad")
 public class AdController {
     @Autowired
     AdService adService;

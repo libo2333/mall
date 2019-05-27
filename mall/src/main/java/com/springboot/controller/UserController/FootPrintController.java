@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("footprint")
+@RequestMapping("admin/footprint")
 public class FootPrintController {
 
     @Autowired

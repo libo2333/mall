@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("collect")
+@RequestMapping("admin/collect")
 public class CollectController {
 
     @Autowired
@@ -29,7 +29,8 @@ public class CollectController {
         if (collectList.isEmpty()&&collectList==null){
             return new ResponseVO(null,"fail",404);
         }else {
-            data.setTotal(collectList.size());
+            int total = collectService.queryCollectCount(userId,valueId);
+            data.setTotal(total);
             data.setItems(collectList);
             return new ResponseVO(data,"ok",0);
         }

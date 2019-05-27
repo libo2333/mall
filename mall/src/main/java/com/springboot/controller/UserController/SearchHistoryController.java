@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("history")
+@RequestMapping("admin/history")
 public class SearchHistoryController {
 
     @Autowired

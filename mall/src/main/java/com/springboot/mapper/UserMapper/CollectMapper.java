@@ -22,4 +22,6 @@ public interface CollectMapper {
     int updateByPrimaryKeySelective(Collect record);
 
     int updateByPrimaryKey(Collect record);
+
+    int selectCollectCount(String userId, String valueId);
 }

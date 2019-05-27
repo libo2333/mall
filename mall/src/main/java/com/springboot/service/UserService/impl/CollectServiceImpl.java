@@ -20,4 +20,10 @@ public class CollectServiceImpl implements CollectService {
         List<Collect> collectList = collectMapper.selectCollectList(pageDetail,userId,valueId);
         return collectList;
     }
+
+    @Override
+    public int queryCollectCount(String userId, String valueId) {
+        int ret = collectMapper.selectCollectCount(userId,valueId);
+        return ret;
+    }
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 @Controller
-@RequestMapping("feedback")
+@RequestMapping("admin/feedback")
 public class FeedBackController {
 
     @Autowired

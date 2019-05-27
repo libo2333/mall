@@ -8,6 +8,13 @@ public class CategoryL2 {
     String iconUrl;
     String picUrl;
     String level;
+    private Byte sortOrder;
+
+    private String addTime;
+
+    private String updateTime;
+
+    private Boolean deleted;
 
     public CategoryL2() {
     }
@@ -88,6 +95,10 @@ public class CategoryL2 {
                 ", iconUrl='" + iconUrl + '\'' +
                 ", picUrl='" + picUrl + '\'' +
                 ", level='" + level + '\'' +
+                ", sortOrder=" + sortOrder +
+                ", addTime='" + addTime + '\'' +
+                ", updateTime='" + updateTime + '\'' +
+                ", deleted=" + deleted +
                 '}';
     }
 }

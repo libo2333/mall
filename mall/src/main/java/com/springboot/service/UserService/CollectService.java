@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CollectService {
     List<Collect> queryCollectList(PageDetail pageDetail, String userId, String valueId);
+
+    int queryCollectCount(String userId, String valueId);
 }
