@@ -31,4 +31,14 @@ public class WXCategoryControlller {
         data.setCurrentSubCategory(currentSubCategory);
         return new ResponseVO(data,"ok",0);
     }
+
+    @RequestMapping("current")
+    @ResponseBody
+    public ResponseVO current(int id){
+        CategoryL2 currentCategory = wxCategoryService.queryCategoryById(id);
+        List<CategoryL2> currentSubCategory = wxCategoryService.querySubCatogoryList(id);
+        data.setCurrentCategory(currentCategory);
+        data.setCurrentSubCategory(currentSubCategory);
+        return new ResponseVO(data,"ok",0);
+    }
 }
