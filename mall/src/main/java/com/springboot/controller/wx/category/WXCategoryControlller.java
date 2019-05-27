@@ -24,8 +24,9 @@ public class WXCategoryControlller {
     @ResponseBody
     public ResponseVO category(){
         List<CategoryL2> categoryList = wxCategoryService.queryCategoryList();
-        CategoryL2 currentCategory = wxCategoryService.queryCategoryById(1005000);
-        List<CategoryL2> currentSubCategory = wxCategoryService.querySubCatogoryList(1005000);
+        int i = wxCategoryService.queryCategoryId();
+        CategoryL2 currentCategory = wxCategoryService.queryCategoryById(i);
+        List<CategoryL2> currentSubCategory = wxCategoryService.querySubCatogoryList(i);
         data.setCategoryList(categoryList);
         data.setCurrentCategory(currentCategory);
         data.setCurrentSubCategory(currentSubCategory);
