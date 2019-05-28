@@ -9,6 +9,7 @@ import com.springboot.bean.mall.brand.Brand;
 import com.springboot.bean.mall.category.CategoryL2;
 import com.springboot.bean.wx.category.Goods;
 import com.springboot.bean.wx.home.FloorGoodsData;
+import com.springboot.bean.wx.home.GrouponData;
 import com.springboot.bean.wx.home.HomeData;
 import com.springboot.service.wx.home.WXHomeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class WXHomeController {
         List<CategoryL2> channel = wxHomeService.queryCategoryList();
         List<Coupon> couponList = wxHomeService.queryCouponList();
         List<FloorGoodsData> floorGoodsList = wxHomeService.queryFloorGoodsList();
+        List<GrouponData> grouponList = wxHomeService.queryGrouponList();
         data.setBanner(banner);
         data.setBrandList(brandList);
         data.setCategoryList(channel);
