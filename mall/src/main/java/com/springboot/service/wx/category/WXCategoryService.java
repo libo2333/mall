@@ -10,4 +10,6 @@ public interface WXCategoryService {
     CategoryL2 queryCategoryById(int i);
 
     List<CategoryL2> querySubCatogoryList(int i);
+
+    int queryCategoryId();
 }

@@ -16,6 +16,8 @@ public interface AdMapper {
 
     List<Ad> selectAdList(@Param("pageDetail")PageDetail pageDetail,@Param("name")String name,@Param("content")String content);
 
+    List<Ad> selectWXAdList();
+
     Ad selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Ad record);

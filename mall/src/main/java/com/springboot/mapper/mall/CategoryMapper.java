@@ -13,8 +13,6 @@ public interface CategoryMapper {
 
     List<CategoryL2> selectSubCategory(int id);
 
-
-
-
     int selectFirstCategoryId();
+
 }

@@ -35,7 +35,7 @@
         from cskaoyan_mall_category where level='L2' and pid = #{id}
     </select>
 
-    <select id="selectFirstCategoryId">
+    <select id="selectFirstCategoryId" resultType="Integer">
         select id from cskaoyan_mall_category limit 1
     </select>
 
