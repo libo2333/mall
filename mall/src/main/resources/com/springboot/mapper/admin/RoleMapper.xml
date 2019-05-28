@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mapper.admin.RoleMapper">
     <sql id="queryRoleSql">
-        SELECT id,name FROM `cskaoyan_mall_role`
+        SELECT id,name FROM `cskaoyan_mall_role` where deleted=0
     </sql>
     <resultMap id="queryRoleMapper" type="com.springboot.bean.admin.Role">
         <id property="id" column="id"/>
@@ -13,7 +13,7 @@
         <result property="updateTime" column="update_time"/>
         <result property="deleted" column="deleted"/>
     </resultMap>
-    <resultMap id="IdNameMapper" type="com.springboot.bean.admin.RoleLabelValue">
+    <resultMap id="IdNameMapper" type="com.springboot.bean.admin.Role">
         <id property="value" column="id"/>
         <result property="label" column="name"/>
     </resultMap>
@@ -21,6 +21,32 @@
         <include refid="queryRoleSql"/>
     </select>
     <select id="queryAll" resultMap="queryRoleMapper">
-        SELECT * FROM `cskaoyan_mall_role` GROUP BY #{sort} #{order} limit #{limit} offset #{offset}
+        SELECT * FROM `cskaoyan_mall_role` where deleted =0 order BY #{sort} #{order} limit #{limit} offset #{offset}
     </select>
+    <select id="queryAllByName" resultMap="queryRoleMapper">
+       SELECT * FROM `cskaoyan_mall_role`
+       where deleted =0 and `name` like #{name} order BY #{sort} #{order} limit #{limit} offset #{offset}
+
+    </select>
+   <select id="queryRoleIdByName" resultType="_int">
+       select id from `cskaoyan_mall_role` where name=#{name}
+   </select>
+    <insert id="insertRole" parameterType="com.springboot.bean.admin.Role" useGeneratedKeys="true" keyProperty="id">
+        insert into cskaoyan_mall_role
+        (name,`desc`,enabled,add_time,update_time,deleted)
+        values (#{name},#{desc},#{enabled},#{addTime},#{updateTime},#{deleted})
+    </insert>
+    <!--parameterType="com.springboot.bean.admin.Role"-->
+    <select id="queryByName" resultType="com.springboot.bean.admin.Role">
+        select * from cskaoyan_mall_role where name=#{name} and deleted =0;;
+    </select>
+    <update id="update">
+        update cskaoyan_mall_role
+        set name=#{name},update_time=#{updateTime},
+        `desc`=#{desc}
+        where id =#{id}
+    </update>
+    <update id="delete">
+       update cskaoyan_mall_role set deleted=1 where id=#{id};
+    </update>
 </mapper>

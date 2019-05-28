@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FileUploadUtil {
-    public static PictureData uploadUtil(MultipartFile file, HttpServletRequest req) throws  IOException {
+    public static PictureData uploadUtil(MultipartFile file) throws  IOException {
         PictureData imageInfo = new PictureData();
         //获取上传文件名
         String fileName = file.getOriginalFilename();

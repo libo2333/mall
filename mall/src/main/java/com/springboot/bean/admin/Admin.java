@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Admin {
     private String avatar;/*varchar*//*avatar: "'"*/
     private int id;/*int*/
-    private String roleIds[];/*varchar*//*  roleIds: [2, 3, 10, 1]*/
+    private Integer roleIds[];/*varchar*//*  roleIds: [2, 3, 10, 1]*/
     private String username;
     private String password;
     /*role表*/
@@ -18,11 +18,12 @@ public class Admin {
 
     private String lastLogInIp;
     private String lastLogInTime;
+    private int deleted;
 
     public Admin() {
     }
 
-    public Admin(String avatar, int id, String[] roleIds, String username, String password, int value, String label, String addTime, String updateTime, String lastLogInIp, String lastLogInTime) {
+    public Admin(String avatar, int id, Integer[] roleIds, String username, String password, int value, String label, String addTime, String updateTime, String lastLogInIp, String lastLogInTime, int deleted) {
         this.avatar = avatar;
         this.id = id;
         this.roleIds = roleIds;
@@ -34,6 +35,7 @@ public class Admin {
         this.updateTime = updateTime;
         this.lastLogInIp = lastLogInIp;
         this.lastLogInTime = lastLogInTime;
+        this.deleted = deleted;
     }
 
     public String getAvatar() {
@@ -52,11 +54,11 @@ public class Admin {
         this.id = id;
     }
 
-    public String[] getRoleIds() {
+    public Integer[] getRoleIds() {
         return roleIds;
     }
 
-    public void setRoleIds(String[] roleIds) {
+    public void setRoleIds(Integer[] roleIds) {
         this.roleIds = roleIds;
     }
 
@@ -122,5 +124,13 @@ public class Admin {
 
     public void setLastLogInTime(String lastLogInTime) {
         this.lastLogInTime = lastLogInTime;
+    }
+
+    public int getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(int deleted) {
+        this.deleted = deleted;
     }
 }

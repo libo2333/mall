@@ -8,12 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class StringToArrayHandler extends BaseTypeHandler <Integer[]>{
+public class IntegerToStringHandler extends BaseTypeHandler <Integer[]>{
 
     @Override
-    public void setNonNullParameter(PreparedStatement preparedStatement, int index, Integer[] strings, JdbcType jdbcType) throws SQLException {
+    public void setNonNullParameter(PreparedStatement preparedStatement, int index, Integer[] integers, JdbcType jdbcType) throws SQLException {
         StringBuffer stringBuffer=new StringBuffer();
-        for (Integer s:strings){
+        for (Integer s:integers){
             stringBuffer.append(s).append(",");
         }
         String substring = stringBuffer.toString().substring(stringBuffer.length() - 1);
