@@ -2,18 +2,50 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mapper.admin.AdminMapper">
     <sql id="queryAdminSql">
-        SELECT id,avatar,role_ids,username from cskaoyan_mall_admin
-        ORDER BY #{sort} #{order}
+        SELECT id,avatar,role_ids,username
+        from cskaoyan_mall_admin where deleted=0
+        ORDER BY #{sort} #{order} limit #{limit} offset #{offset}
     </sql>
-    <resultMap id="AdminMap" type="com.springboot.bean.admin.ResponseAdmin">
+    <resultMap id="AdminMap" type="com.springboot.bean.admin.Admin">
         <id column="id" property="id"/>
         <result column="username" property="username"/>
         <result column="avatar" property="avatar"/>
-        <result column="role_ids" property="roleIds" typeHandler="com.springboot.handler.StringToArrayHandler"/>
+        <result column="role_ids" property="roleIds" typeHandler="com.springboot.handler.IntegerToStringHandler"/>
     </resultMap>
     <select id="queryAllAdmin" resultMap="AdminMap" >
         <include refid="queryAdminSql"/>
     </select>
+    <select id="queryAllAdminByName" resultMap="AdminMap">
+        SELECT id,avatar,role_ids,username from cskaoyan_mall_admin where deleted=0 and username like #{name}
+        ORDER BY #{sort} #{order} limit #{limit} offset #{offset}
+    </select>
+    <sql id="insertAdminSql">
+        INSERT INTO cskaoyan_mall_admin 
+        ( username, PASSWORD, avatar, last_login_ip, 
+        last_login_time, update_time, add_time, deleted, role_ids )
+        VALUES
+	    ( #{username}, #{password}, #{avatar}, #{lastLogInIp}, 
+	    #{lastLogInTime}, #{updateTime},#{addTime},#{deleted}, #{roleIds,typeHandler=com.springboot.handler.IntegerToStringHandler} )
+    </sql>
+    <insert id="insertAdmin">
+        <include refid="insertAdminSql"/>
+    </insert>
+    <update id="update">
+        update cskaoyan_mall_admin set
+        username=#{username},
+        password=#{password},
+        last_login_ip=#{lastLogInIp},
+        last_login_time=#{lastLogInTime},
+        avatar=#{avatar},
+        update_time=#{updateTime},
+        role_ids=#{roleIds,typeHandler=com.springboot.handler.IntegerToStringHandler}
+        where id=#{id}
+    </update>
+    <update id="delete">
+        update cskaoyan_mall_admin set deleted=1
+        where id=#{id}
+    </update>
+    
 </mapper>
 
 

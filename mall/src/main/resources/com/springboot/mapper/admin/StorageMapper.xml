@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springboot.mapper.admin.StorageMapper">
     <sql id="queryAllSql">
-        SELECT * FROM `cskaoyan_mall_storage` group by #{sort} #{order} limit #{limit} offset #{offset}
+        SELECT * FROM `cskaoyan_mall_storage` where deleted =0
+        order by #{sort} #{order} limit #{limit} offset #{offset}
     </sql>
     <resultMap id="queryAllStorage" type="com.springboot.bean.admin.Storage">
         <id property="id" column="id"/>
@@ -11,7 +12,7 @@
         <result property="key" column="key"/>
         <result property="name" column="name"/>
         <result property="size" column="size"/>
-        <result property="type" column="url"/>
+        <result property="type" column="type"/>
         <result property="updateTime" column="update_time"/>
         <result property="url" column="url"/>
     </resultMap>
@@ -53,4 +54,13 @@
         from cskaoyan_mall_storage
         where `key` = #{key}
     </select>
+    <update id="delete">
+        update cskaoyan_mall_storage set
+        deleted=1 where id=#{id}
+    </update>
+    <update id="update">
+        update cskaoyan_mall_storage set
+        name =#{name},update_time=#{updateTime}
+        where id=#{id}
+    </update>
 </mapper>

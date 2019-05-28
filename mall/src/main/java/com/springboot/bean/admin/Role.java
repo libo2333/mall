@@ -12,11 +12,14 @@ public class Role {
     private String addTime;/*datetime*//* addTime: "2019-05-22 09:03:05"*/
     private String updateTime;/*datetime*//* updateTime: "2019-05-22 11:28:57"*/
     private int deleted;/*tinyint*//*deleted: false*/
+    private int value;
+    private String label;
 
     public Role() {
     }
 
-    public Role(int id, String name, String desc, int enabled, String addTime, String updateTime, int deleted) {
+
+    public Role(int id, String name, String desc, int enabled, String addTime, String updateTime, int deleted, int value, String label) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -24,6 +27,8 @@ public class Role {
         this.addTime = addTime;
         this.updateTime = updateTime;
         this.deleted = deleted;
+        this.value = value;
+        this.label = label;
     }
 
     public int getId() {
@@ -80,5 +85,21 @@ public class Role {
 
     public void setDeleted(int deleted) {
         this.deleted = deleted;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

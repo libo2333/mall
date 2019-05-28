@@ -20,4 +20,12 @@
     <select id="queryAllLog" resultMap="queryLogMap">
         <include refid="queryLogsSql"/>
     </select>
+    <select id="queryLogAll" resultMap="queryLogMap">
+        <include refid="queryLogsSql"/>
+        order by #{sort} #{order} limit #{offset},#{limit}
+    </select>
+    <select id="queryLogByName" resultMap="queryLogMap">
+        <include refid="queryLogsSql"/>
+        where `admin` like #{name} order by #{sort} #{order} limit #{offset},#{limit}
+    </select>
 </mapper>

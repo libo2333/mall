@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface LogService {
 
-    List<Log> queryAllLog();
+    List<Log> queryAllLog(int page, int limit, String sort, String order);
+
+    List<Log> queryAllByName(int page, int limit, String sort, String order, String name);
 }

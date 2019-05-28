@@ -12,8 +12,19 @@ import java.util.List;
 public class LogServiceImpl implements LogService {
     @Autowired
     LogMapper logMapper;
+
+
     @Override
-    public List<Log> queryAllLog() {
-        return logMapper.queryAllLog();
+    public List<Log> queryAllLog(int page, int limit, String sort, String order) {
+        int offset=(page-1)*limit;
+        List<Log> logs=logMapper.queryLogAll( offset,  limit, sort,  order);
+        return logs;
+    }
+
+    @Override
+    public List<Log> queryAllByName(int page, int limit, String sort, String order, String name) {
+        int offset=(page-1)*limit;
+        name="%"+name+"%";
+        return logMapper.queryLogByName( offset,  limit, sort,  order,name);
     }
 }
