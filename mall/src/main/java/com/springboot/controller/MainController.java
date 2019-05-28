@@ -11,12 +11,12 @@ import java.util.Map;
 
 @RestController
 public class MainController {
-    @RequestMapping("hello")
+    @RequestMapping("admin/hello")
     public String testHello(){
         return "hello";
     }
 
-    @RequestMapping(value = "auth/login")
+    @RequestMapping(value = "admin/auth/login")
     public Map login(String username, String password){
         HashMap<String, Object> loginResult = new HashMap<>();
         //loginResult.put("data", "2fcc8519-2447-427a-ba05-c7d84bd36c32");
@@ -25,7 +25,7 @@ public class MainController {
         return loginResult;
     }
 
-    @RequestMapping(value = "auth/info")
+    @RequestMapping(value = "admin/auth/info")
     public Map loginInfo(){
         HashMap<String, Object> loginToken = new HashMap<>();
         HashMap<String, Object> data = new HashMap<>();

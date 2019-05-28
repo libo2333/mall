@@ -1,6 +1,9 @@
 package com.springboot.mapper.wx.category;
 
 import com.springboot.bean.wx.category.Goods;
+import com.springboot.bean.wx.home.FloorGoodsData;
+
+import java.util.List;
 
 public interface GoodsMapper {
 
@@ -18,4 +21,7 @@ public interface GoodsMapper {
     int updateByPrimaryKeyWithBLOBs(Goods record);
 
     int updateByPrimaryKey(Goods record);
+
+    List<Goods> selectGoodsList(int id);
+
 }
