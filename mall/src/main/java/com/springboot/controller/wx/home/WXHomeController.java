@@ -41,6 +41,6 @@ public class WXHomeController {
         data.setCategoryList(channel);
         data.setCouponList(couponList);
         data.setFloorGoodsList(floorGoodsList);
-        return new ResponseVO(data,"ok",0);
+        return new ResponseVO<>(data,"ok",0);
     }
 }
