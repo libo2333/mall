@@ -25,4 +25,6 @@ public interface UserMapper {
     int updateByPrimaryKey(User record);
 
     int selectUserCount(String username,String mobile);
+    /*微信登陆*/
+    User queryUserByCode(String code);
 }

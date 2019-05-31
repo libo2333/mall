@@ -1,3 +1,4 @@
+/*
 package com.springboot.config;
 
 import com.springboot.shiro.CustomRealm;
@@ -51,3 +52,4 @@ public class ShiroConfig {
         return simpleMappingExceptionResolver;
     }
 }
+*/

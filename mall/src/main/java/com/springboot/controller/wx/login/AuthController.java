@@ -1,15 +1,23 @@
 package com.springboot.controller.wx.login;
 
 import com.springboot.bean.ResponseVO;
-import com.springboot.bean.admin.LoginUser;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.springboot.bean.UserBean.User;
+import com.springboot.service.UserService.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RequestMapping("/wx/auth")
 public class AuthController {
+    @Autowired
+    UserService userService;
     @RequestMapping("login_by_weixin")
-    public ResponseVO login_by_weixin(@RequestBody LoginUser loginUser) {
+    public ResponseVO login_by_weixin(@RequestParam("code") String code ) {
+        /*与注册时存入数据库的数据比较*/
+        User user = userService.queryLoginUser(code);
+        if(null!=user){
+            return new ResponseVO<>(user,"成功",1);
+        }
         return new ResponseVO<>(null, "错误", -1);
     }
 

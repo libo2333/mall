@@ -28,4 +28,9 @@ public class UserServiceImpl implements UserService {
         int total = userMapper.selectUserCount(username,mobile);
         return total;
     }
+    /*微信登陆*/
+    @Override
+    public User queryLoginUser(String code) {
+        return userMapper.queryUserByCode(code);
+    }
 }

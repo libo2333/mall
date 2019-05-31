@@ -417,4 +417,8 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <!--补充-->
+  <select id="queryUserByCode" resultMap="com.springboot.bean.UserBean.User">
+    select * from cskaoyan_mall_user where status=0 and weixin_openid=#{code} and deleted=0;
+  </select>
 </mapper>
