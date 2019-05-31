@@ -17,7 +17,7 @@ public class HomeData {
     private List<CategoryL2> categoryList;
     private List<Coupon> couponList;
     private List<FloorGoodsData> floorGoodsList;
-    private List<Groupon> grouponList;
+    private List<GrouponData> grouponList;
     private List<Goods> hotGoodsList;
     private List<Goods> newGoodsList;
     private List<Topic> topicList;
@@ -62,11 +62,11 @@ public class HomeData {
         this.floorGoodsList = floorGoodsList;
     }
 
-    public List<Groupon> getGrouponList() {
+    public List<GrouponData> getGrouponList() {
         return grouponList;
     }
 
-    public void setGrouponList(List<Groupon> grouponList) {
+    public void setGrouponList(List<GrouponData> grouponList) {
         this.grouponList = grouponList;
     }
 
